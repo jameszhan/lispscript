@@ -65,6 +65,8 @@ describe('LispScript', function() {
             it('should print the syntax tree', function(){
                 console.log();
                 t.print(t.parse(t.tokenize('(car (cdr 1 2) 1 (+ 1 3) 2)')));
+                console.log();
+                t.print(t.parse(t.tokenize("(car '(1 2 3))")));
             });
         });
     });
@@ -139,17 +141,18 @@ describe('LispScript', function() {
             });
 
             it('should return first element of list', function() {
-                env.put('car', function(){
-                    return arguments[0];
+                env.put('car', function(cons){
+                    console.log(this);
+                    return cons[0];
                 });
-                expect(interpret("(car 1 2 3)")).toEqual(1);
+                expect(interpret("(car (1 2 3))")).toEqual(1);
             });
 
             it('should return rest of list', function() {
-                env.put('cdr', function() {
-                    return aps.call(arguments, 1);
+                env.put('cdr', function(cons) {
+                    return aps.call(cons, 1);
                 });
-                expect(interpret("(cdr 1 2 3)")).toEqual([2, 3]);
+                expect(interpret("(cdr (1 2 3))")).toEqual([2, 3]);
             });
 
             it('should return sum of list', function() {
