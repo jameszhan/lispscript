@@ -1,0 +1,14 @@
+{
+  "name": "lispscript",
+  "version": "0.0.1",
+  "description": "Idea Project For Lisp Interpreter use JavaScript.",
+  "main": "repl.js",
+  "scripts": {
+    "test": "jasmine-node spec/*.spec.js"
+  },
+  "keywords": [
+    "lispscript"
+  ],
+  "author": "James Zhan",
+  "license": "MIT-LICENSE"
+}
