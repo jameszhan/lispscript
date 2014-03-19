@@ -169,7 +169,7 @@ describe('LispScript', function() {
 
         describe('macro', function() {
             it('should can be process the macro', function() {
-
+            //(cdr '(1 2 (car '(3 5))))
             });
         });
     });
