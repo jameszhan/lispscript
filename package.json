@@ -1,14 +1,21 @@
 {
-  "name": "lispscript",
-  "version": "0.0.2",
-  "description": "Idea Project For Lisp Interpreter use JavaScript.",
-  "main": "repl.js",
-  "scripts": {
-    "test": "jasmine-node spec/*.spec.js"
-  },
-  "keywords": [
-    "lispscript"
-  ],
-  "author": "James Zhan",
-  "license": "MIT-LICENSE"
+    "name": "lispscript",
+    "version": "0.0.3",
+    "description": "Idea Project For Lisp Interpreter use JavaScript",
+    "homepage": "https://github.com/jameszhan/lispscript",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jameszhan/lispscript.git"
+    },
+    "contributors": [
+        "James Zhan <zhiqiangzhan@gmail.com>"
+    ],
+    "main": "bin/lispscript",
+    "bin": "bin/lispscript",
+    "scripts": {
+        "test": "jasmine-node spec/*.spec.js"
+    },
+    "author": "James Zhan <zhiqiangzhan@gmail.com>",
+    "licenses": ["MIT"],
+    "keywords": ["lisp", "compiler", "lispscript"]
 }
