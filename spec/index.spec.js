@@ -15,6 +15,39 @@ describe('LispScript', function() {
         });
     });
 
+    describe('define', function() {
+        it('should can define some variables', function() {
+            t.interpret("(define (dup x) (+ x x))");
+            expect(t.interpret("(dup 6)")).toEqual(12);
+
+            t.interpret("(define hello 100)");
+            expect(t.interpret("hello")).toEqual(100);
+
+            t.interpret("(define (fb x) (if (< x 2) 1 (* x (fb (- x 1)))))");
+            expect(t.interpret("(fb 10)")).toEqual(3628800);
+        });
+    });
+
+    describe('apply', function() {
+        it('should can apply func to list', function() {
+            t.interpret("(define (dup x) (+ x x))");
+            expect(t.interpret("(dup 6)")).toEqual(12);
+
+            t.interpret("(define hello 100)");
+            expect(t.interpret("hello")).toEqual(100);
+
+            t.interpret("(define (fb x) (if (< x 2) 1 (* x (fb (- x 1)))))");
+            expect(t.interpret("(fb 10)")).toEqual(3628800);
+        });
+    });
+
+    describe('collections', function(){
+        it('should be work', function() {
+            expect(t.interpret("(map (lambda (x) (+ x 6)) '(1 2 3))")).toEqual([7, 8, 9]);
+            expect(t.interpret("(reduce (lambda (s x) (+ x s)) '(1 2 3) 10)")).toEqual(16);
+        });
+    });
+
     describe('lambdas', function() {
         it('should return correct result when invoke lambda w no params', function() {
             expect(t.interpret("((lambda () (rest (1 2))))")).toEqual([2]);
@@ -63,5 +96,27 @@ describe('LispScript', function() {
             expect(t.interpret("(if 0 42 4711)")).toEqual(4711);
         });
     });
+
+    describe('cond', function(){
+        it('should choose the right branch', function() {
+            expect(t.interpret("(cond ((+ 3 4)))")).toEqual(7);
+            expect(t.interpret("(cond ((> 3 4) 1) ((< 5 6) 2))")).toEqual(2);
+            expect(t.interpret("(cond ((> 3 4)))")).toEqual(undefined);
+
+            var func = '(define (classify x)'
+                + '         (cond'
+                + '             ((< x 0) "negative")'
+                + '             ((< x 10) "small")'
+                + '             ((< x 20) "medium")'
+                + '             ((>= x 30) "big")))';
+            t.interpret(func);
+            expect(t.interpret("(classify 15)")).toEqual('medium');
+            expect(t.interpret("(classify 22)")).toEqual(undefined);
+            expect(t.interpret("(classify 100)")).toEqual("big");
+            expect(t.interpret("(classify -10)")).toEqual("negative");
+        });
+    });
+
+
 
 });
