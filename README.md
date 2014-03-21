@@ -23,6 +23,9 @@ lispscript
 1
 > (cdr '(1 2 3))
 [2, 3]
+
+> ((((lambda (z) (lambda (y) (lambda (x) (- x y z)))) 2) 8) 15)
+15
 ```
 
 
