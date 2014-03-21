@@ -35,6 +35,10 @@ describe('LispScript', function() {
         it('should return correct result when invoke lambda w params', function() {
             expect(t.interpret("((lambda (x) (first (x))) 1)")).toEqual(1);
         });
+
+        it('should return correct result when invoke nested lambdas', function() {
+            expect(t.interpret("((((lambda (z) (lambda (y) (lambda (x) (- x y z)))) 2) 8) 15)")).toEqual(5);
+        });
     });
 
     describe('let', function() {
