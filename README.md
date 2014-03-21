@@ -24,7 +24,7 @@ lispscript
 (cons 1 '(3 5 6))       ;;→ [1, 3, 5, 6]
 (cons '(1 2) '(3 5 6))  ;;→ [[1, 2], 3, 5, 6]
 
-((((lambda (z) (lambda (y) (lambda (x) (- x y z)))) 2) 8) 15)  ;; → 15
+((((lambda (z) (lambda (y) (lambda (x) (- x y z)))) 2) 8) 15)  ;; → 5
 
 (define hello 100)
 hello               ;;→ 100
