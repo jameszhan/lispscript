@@ -15,6 +15,16 @@ describe('LispScript', function() {
         });
     });
 
+    describe('atom?', function() {
+        it('returns true if the value of exp is an atom, otherwise nil', function() {
+            expect(t.interpret("(atom? a)")).toEqual(true);   //undefined
+            expect(t.interpret("(atom? 6)")).toEqual(true);
+            expect(t.interpret('(atom? "hello")')).toEqual(true);
+            expect(t.interpret("(atom? '(1 3 5))")).toEqual(false);
+            expect(t.interpret("(atom? (lambda (x) (+ x x)))")).toEqual(false);
+        });
+    });
+
     describe('define', function() {
         it('should can define some variables', function() {
             t.interpret("(define (dup x) (+ x x))");
