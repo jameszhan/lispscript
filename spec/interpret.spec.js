@@ -140,7 +140,6 @@ describe('LispScript', function() {
 
             it('should return first element of list', function() {
                 env.put('car', function(cons){
-                    console.log(this);
                     return cons[0];
                 });
                 expect(interpret("(car (1 2 3))")).toEqual(1);
