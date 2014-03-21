@@ -63,9 +63,7 @@ describe('LispScript', function() {
 
         describe('print', function(){
             it('should print the syntax tree', function(){
-                console.log();
                 t.print(t.parse(t.tokenize('(car (cdr 1 2) 1 (+ 1 3) 2)')));
-                console.log();
                 t.print(t.parse(t.tokenize("(car '(1 2 3))")));
             });
         });
