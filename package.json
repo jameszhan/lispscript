@@ -1,6 +1,6 @@
 {
     "name": "lispscript",
-    "version": "0.0.5",
+    "version": "0.1.0",
     "description": "Idea Project For Lisp Interpreter use JavaScript",
     "homepage": "https://github.com/jameszhan/lispscript",
     "repository": {
