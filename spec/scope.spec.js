@@ -19,6 +19,19 @@ describe('LispScript', function() {
             scope1.set('b', 5);
             expect(scope2.get('b')).toBe(3);
             expect(scope1.get('b')).toBe(5);
+
+
+            scope2.local('a', 6);
+            expect(scope2.get('a')).toBe(6);
+            expect(scope1.get('a')).toBe(2);
+            scope2.set('a', 8);
+            expect(scope2.get('a')).toBe(8);
+            expect(scope1.get('a')).toBe(2);
+
+            scope2.remove('a');
+            scope2.set('a', 9);
+            expect(scope2.get('a')).toBe(9);
+            expect(scope1.get('a')).toBe(9);
         });
     });
 
