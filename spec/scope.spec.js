@@ -5,6 +5,10 @@ describe('LispScript', function() {
     describe('scope', function() {
         it('set and get value', function() {
             var scope1 = newScope(undefined, {a: 1}), provider = {b: 2}, scope2 = newScope(scope1, provider);
+
+            expect(scope2.has('a')).toBe(true);
+            expect(scope2.localHas('a')).toBe(false);
+
             expect(scope2.get('a')).toBe(1);
             scope2.set('a', 2);
             expect(scope2.get('a')).toBe(2);
