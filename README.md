@@ -1,21 +1,21 @@
-#LispScript
+# LispScript
 
 An idea project for Lisp interpreter use javascript, and it build use node.js.
 
-##install
+## install
 To install the latest official version, use NPM:
 
-```sh
-npm install lispscript -g
+```bash
+$ npm install lispscript -g
 ```
 
 To install the latest _bleeding edge_ version, clone this repository.
 
 
-##usage
+## usage
 
-```sh
-lispscript
+```bash
+$ lispscript
 ```
 
 ```lisp

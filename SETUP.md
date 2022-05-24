@@ -1,10 +1,10 @@
-##Setup Module
+## Setup Module
 
 > mkdir lispscript
 > cd lispscript
 > npm init
 
-##Publish Module
+## Publish Module
 > npm adduser
 > npm publish
 
